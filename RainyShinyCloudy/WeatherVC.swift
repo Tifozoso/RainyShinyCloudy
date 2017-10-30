@@ -14,9 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var currentWeatherImage: UIImageView!
+    @IBOutlet weak var currentWeatherIcon: UIImageView!
     @IBOutlet weak var currentWeatherTypeLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
     
     
