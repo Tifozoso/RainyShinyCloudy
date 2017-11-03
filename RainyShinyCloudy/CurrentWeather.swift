@@ -50,7 +50,7 @@ class CurrentWeather {
         return _currentTemp
     }
     
-    func downloadWeatherDetails(completed: DownloadComplete) {
+    func downloadWeatherDetails(completed: @escaping DownloadComplete) {
         
         //Alamofire download
         
@@ -89,8 +89,8 @@ class CurrentWeather {
                 
             }
         
-        }
-        completed()
         
+        completed()
+        }
     }
 }

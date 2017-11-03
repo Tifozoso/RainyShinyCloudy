@@ -63,8 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				3C8D23FB1F96BA5D001FC16C /* AppDelegate.swift */,
-				3C04F94F1FA7D3C700915851 /* CurrentWeather.swift */,
 				3C04F94D1FA7CD4600915851 /* Constants.swift */,
+				3C04F94F1FA7D3C700915851 /* CurrentWeather.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
