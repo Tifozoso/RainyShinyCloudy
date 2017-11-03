@@ -69,7 +69,7 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="G1R-9F-r9v" firstAttribute="top" secondItem="3cn-iu-RPF" secondAttribute="top" constant="75" id="d4x-CB-Dl6"/>
+                                                    <constraint firstItem="G1R-9F-r9v" firstAttribute="top" secondItem="3cn-iu-RPF" secondAttribute="top" constant="87" id="d4x-CB-Dl6"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
