@@ -44,11 +44,10 @@ class Forecast {
         return _lowTemp
     }
     
-    
-    init(weatherDict: Dictionary<String, Any>) {
+    init(weatherDict: Dictionary<String, AnyObject>) {
         
-        if let temp = weatherDict["temp"] as? Dictionary<String, Any>) {
-            
+        if let temp = weatherDict["temp"] as? Dictionary<String, AnyObject> {
+
             if let min = temp["min"] as? Double {
                 
                 let kelvinToFarenheitPreDivision = (min * (9/5) - 459.67)

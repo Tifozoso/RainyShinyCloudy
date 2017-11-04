@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
   
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
@@ -19,6 +19,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var currentWeatherTypeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+//
+//
+    
     var currentWeather = CurrentWeather()
     var forecast: Forecast!
     var forecasts = [Forecast]()
@@ -26,21 +29,36 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//
+//
+//
+//
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         currentWeather = CurrentWeather()
-    }
     
-        currentWeather.downloadWeatherDetails {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+        CurrentWeather.downloadWeatherDetails {
             self.downloadForecastData {
                 self.updateMainUI()
             }
-            
         }
-        
-    
-    
+//    } else {
+//
+//
+}
     func downloadForecastData(completed: @escaping DownloadComplete) {
         //Downloading forecast weather data for TableView
         let forecastURL = URL(string: FORECAST_WEATHER_URL)!
@@ -49,17 +67,17 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
             let result = response.result
         
-            if let dict = result.value as? Dictionary<String, Any?> {
+            if let dict = result.value as? Dictionary<String, AnyObject> {
              
-                if let list = dict["list"] as? [Dictionary<String, Any?>] {
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
                     
-                
-                
                 for obj in list {
-                    let forecast = Forecast(weatherDict: obj as Any as! Dictionary<String, Any>)
+                    let forecast = Forecast(weatherDict: obj)
                     self.forecasts.append(forecast)
                     print(obj)
                 }
+                self.forecasts.remove(at: 0)
+                self.tableView.reloadData()
                 }
             }
             completed()
@@ -70,15 +88,21 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return forecasts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as? WeatherCell {
             
-        return cell
+            let forecast = forecasts[indexPath.row]
+            cell.configureCell(forecast: forecast)
+            return cell
+        } else {
+                return WeatherCell()
+        }
     }
-    
+        
     func updateMainUI() {
         
         dateLabel.text = currentWeather.date
@@ -90,6 +114,4 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
 
-    
-}
 }
