@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Alamofire
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   
     @IBOutlet weak var dateLabel: UILabel!
@@ -18,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var currentWeatherTypeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var currentWeather = CurrentWeather!
+    var currentWeather = CurrentWeather()
     var forecast: Forecast!
     var forecasts = [Forecast]()
     
@@ -29,15 +30,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         
         currentWeather = CurrentWeather()
-        forecast = Forecast()
-        
-        currentWeather.downloadWeatherDetails {
-            self.updateMainUI()
-        }
-        
     }
     
-    func downloadForecastData(completed: DownloadComplete) {
+        currentWeather.downloadWeatherDetails {
+            self.downloadForecastData {
+                self.updateMainUI()
+            }
+            
+        }
+        
+    
+    
+    func downloadForecastData(completed: @escaping DownloadComplete) {
         //Downloading forecast weather data for TableView
         let forecastURL = URL(string: FORECAST_WEATHER_URL)!
         
@@ -47,14 +51,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
             if let dict = result.value as? Dictionary<String, Any?> {
              
-                if let list = dict["list"] as? [Dictionary<String, Any?>]
+                if let list = dict["list"] as? [Dictionary<String, Any?>] {
+                    
+                
                 
                 for obj in list {
-                    let forecast = Forecast(weatherDict: obj)
-                    self.forecasts.append()
+                    let forecast = Forecast(weatherDict: obj as Any as! Dictionary<String, Any>)
+                    self.forecasts.append(forecast)
+                    print(obj)
                 }
-                
+                }
             }
+            completed()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,4 +91,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
     
+}
 }
