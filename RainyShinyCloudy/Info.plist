@@ -48,5 +48,7 @@
 	</dict>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to expand Chase&apos;s dating prospects.</string>
 </dict>
 </plist>

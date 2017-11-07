@@ -77,6 +77,13 @@
                                             <constraint firstAttribute="bottom" secondItem="3cn-iu-RPF" secondAttribute="bottom" id="bcP-3n-Jvm"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dt-IC-Wx5">
+                                        <rect key="frame" x="166" y="279" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.19092148542404175" green="0.685089111328125" blue="0.99851328134536743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -92,14 +99,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="WA8-PB-PiV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="WA8-PB-PiV" customClass="WeatherCell" customModule="RainyShinyCloudy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="WA8-PB-PiV" id="V68-Zy-4FB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S13-H2-yYz">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S13-H2-yYz">
                                                     <rect key="frame" x="16" y="18" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="GYA-iH-YhK"/>
@@ -160,6 +167,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="uhQ-dy-IgC" id="pCy-WP-ue3"/>
+                                            <outlet property="highTemp" destination="7Lq-fk-W1O" id="heI-1a-kcy"/>
+                                            <outlet property="lowTemp" destination="hki-Ue-D3n" id="N2s-s8-Nvp"/>
+                                            <outlet property="weatherIcon" destination="S13-H2-yYz" id="JdN-hk-hAs"/>
+                                            <outlet property="weatherType" destination="5vz-K1-Lf7" id="XVM-m3-Mdg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

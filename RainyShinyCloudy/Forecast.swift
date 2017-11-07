@@ -54,7 +54,7 @@ class Forecast {
                 
                 let kelvinToFarenheit = Double(round(10 * kelvinToFarenheitPreDivision) / 10)
                 
-                self._lowTemp = "\("kelvinToFarenheit")"
+                self._lowTemp = "\(kelvinToFarenheit)"
             
             }
             
@@ -64,7 +64,7 @@ class Forecast {
                 
                 let kelvinToFarenheit = Double(round(10 * kelvinToFarenheitPreDivision) / 10)
                 
-                self._highTemp = "\("kelvinToFarenheit")"
+                self._highTemp = "\(kelvinToFarenheit)"
                     
                 }
          
