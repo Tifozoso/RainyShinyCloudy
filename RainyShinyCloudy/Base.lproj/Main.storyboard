@@ -187,7 +187,6 @@
                     </view>
                     <connections>
                         <outlet property="currentTempLabel" destination="AAm-0W-6hc" id="nxj-oR-YZ0"/>
-                        <outlet property="currentWeatherIcon" destination="G1R-9F-r9v" id="kTg-2x-LAD"/>
                         <outlet property="currentWeatherTypeLabel" destination="Rw9-Xh-N3w" id="8Dj-I3-oei"/>
                         <outlet property="dateLabel" destination="3gp-Po-MH9" id="Lf3-0d-DiD"/>
                         <outlet property="locationLabel" destination="IVF-nC-mp5" id="fMC-A4-Wrs"/>

@@ -44,6 +44,8 @@ class Forecast {
         return _lowTemp
     }
     
+ 
+    
     init(weatherDict: Dictionary<String, AnyObject>) {
         
         if let temp = weatherDict["temp"] as? Dictionary<String, AnyObject> {
